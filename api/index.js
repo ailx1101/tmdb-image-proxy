@@ -1,12 +1,12 @@
-const fetch = require('node-fetch');
-const LRUCache = require('lru-cache');
+import fetch from 'node-fetch';
+import LRUCache from 'lru-cache';
 
 const rateLimit = new LRUCache({
   max: 100, // Max 100 requests per IP
   ttl: 60 * 1000, // 1 minute
 });
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
   if (rateLimit.has(ip)) {
