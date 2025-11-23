@@ -1,5 +1,6 @@
 import fetch from 'node-fetch';
-import LRUCache from 'lru-cache';
+//import LRUCache from 'lru-cache';
+import { LRUCache } from 'lru-cache';
 
 const rateLimit = new LRUCache({
   max: 100, // Max 100 requests per IP
